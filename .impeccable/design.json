@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-03T00:00:00.000Z",
+  "title": "Design System: Aprova Aê",
+  "extensions": {
+    "colorMeta": {
+      "indigo-eletrico": {
+        "role": "primary",
+        "displayName": "Índigo Elétrico",
+        "canonical": "#0014ED",
+        "tonalRamp": ["#000122", "#000452", "#000d8f", "#0014ED", "#3b4bf0", "#6c78f4", "#a4acf9", "#dde0fd"]
+      },
+      "tinta-navy": {
+        "role": "primary",
+        "displayName": "Tinta Navy",
+        "canonical": "#000366",
+        "tonalRamp": ["#00011a", "#000233", "#00024d", "#000366", "#2d2f85", "#5c5ea3", "#9b9cc6", "#d6d7ec"]
+      },
+      "verde-sinal": {
+        "role": "secondary",
+        "displayName": "Verde Sinal",
+        "canonical": "#0E9F6E",
+        "tonalRamp": ["#052b1f", "#0a4a35", "#0c7a56", "#0E9F6E", "#3fbb8d", "#72d1ac", "#a8e6cb", "#dcf8ea"]
+      },
+      "verde-sinal-claro": {
+        "role": "secondary",
+        "displayName": "Verde Sinal Claro",
+        "canonical": "#4ADE80",
+        "tonalRamp": ["#0c3a20", "#166534", "#22a352", "#4ADE80", "#7ce8a4", "#a6f0c2", "#cdf7dc", "#eafdf1"]
+      },
+      "cinza-acessivel": {
+        "role": "neutral",
+        "displayName": "Cinza Acessível",
+        "canonical": "#5E6D93",
+        "tonalRamp": ["#181b26", "#2b3247", "#404a68", "#5E6D93", "#8992ae", "#aeb4c9", "#cfd3e0", "#eceef3"]
+      },
+      "papel": { "role": "neutral", "displayName": "Papel", "canonical": "#FFFFFF", "tonalRamp": ["#e6e6e6", "#ececec", "#f2f2f2", "#f7f7f7", "#fafafa", "#fcfcfc", "#fefefe", "#FFFFFF"] },
+      "neblina": { "role": "neutral", "displayName": "Neblina", "canonical": "#F7F8FC", "tonalRamp": ["#1c1e2a", "#3a3d52", "#8a8fb0", "#c4c8de", "#e2e4f0", "#F7F8FC", "#fbfbfd", "#ffffff"] },
+      "grafite": { "role": "neutral", "displayName": "Grafite", "canonical": "#0B1020", "tonalRamp": ["#05060d", "#0B1020", "#1c2140", "#333a63", "#565e8c", "#8388ab", "#b6b9cd", "#e6e7ee"] },
+      "chumbo": { "role": "neutral", "displayName": "Chumbo", "canonical": "#667085", "tonalRamp": ["#1c1f27", "#33374a", "#454b62", "#525970", "#667085", "#8c93a3", "#b4b9c5", "#dde0e5"] },
+      "cinza-medio": { "role": "neutral", "displayName": "Cinza Médio", "canonical": "#8A93A8", "tonalRamp": ["#282c36", "#454b5c", "#636b81", "#8A93A8", "#a5accb", "#c1c7de", "#dde1ee", "#f2f4f9"] },
+      "linha": { "role": "neutral", "displayName": "Linha", "canonical": "#E8EAF6", "tonalRamp": ["#2a2d47", "#54587c", "#8f93b8", "#c4c8e0", "#E8EAF6", "#f0f2fa", "#f6f7fc", "#fbfbfe"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "H1 do hero — único uso desse tamanho na página." },
+      "display-emphasis": { "displayName": "Display Emphasis", "purpose": "H2 de 'Nosso conceito' e da faixa de CTA final — os dois picos emocionais da página." },
+      "headline": { "displayName": "Headline", "purpose": "Título de cada seção principal padrão." },
+      "title": { "displayName": "Title", "purpose": "Título de card — feature, persona, plano, passo. Valor único (20px), não mais uma faixa." },
+      "body": { "displayName": "Body", "purpose": "Parágrafo de introdução de seção." },
+      "body-card": { "displayName": "Body Card", "purpose": "Parágrafo de descrição dentro de card." },
+      "label": { "displayName": "Label / Kicker", "purpose": "Rótulo uppercase que abre cada seção, sempre em Índigo Elétrico." },
+      "caption": { "displayName": "Caption", "purpose": "Rótulo secundário curto — 'Meu objetivo', legendas de estatística." },
+      "stat": { "displayName": "Stat", "purpose": "Leitura numérica — horas, questões, taxa de acerto, preço. Tabular-nums." }
+    },
+    "shadows": [
+      { "name": "hero-card", "value": "0 40px 80px -40px rgba(0,3,102,.35)", "purpose": "Card de dashboard mockup do hero — flutuação ampla e suave." },
+      { "name": "float-badge-light", "value": "0 24px 44px -26px rgba(0,3,102,.4)", "purpose": "Badge 'Revisão concluída' ancorado no hero." },
+      { "name": "float-badge-dark", "value": "0 24px 44px -24px rgba(0,3,102,.6)", "purpose": "Badge 'Meta da semana' sobre fundo Tinta Navy." },
+      { "name": "cta-header", "value": "0 6px 18px -8px rgba(0,20,237,.7)", "purpose": "CTA primário no header, em repouso." },
+      { "name": "cta-hero", "value": "0 14px 30px -12px rgba(0,20,237,.75)", "purpose": "CTA primário do hero, em repouso." },
+      { "name": "cta-hover", "value": "0 12px 26px -10px rgba(0,20,237,.75)", "purpose": "CTA primário do header, hover." },
+      { "name": "card-hover", "value": "0 26px 50px -30px rgba(0,3,102,.35)", "purpose": "Cards de grade padrão (para quem é, funcionalidades) no hover, junto de translateY(-4px)." },
+      { "name": "card-dark-caminho", "value": "0 40px 70px -40px rgba(0,3,102,.6)", "purpose": "Card 'com o Aprova Aê' na comparação de caminhos." },
+      { "name": "card-premium", "value": "0 44px 80px -44px rgba(0,20,237,.75)", "purpose": "Card do plano Premium — a maior sombra do sistema." }
+    ],
+    "motion": [
+      { "name": "reveal-on-scroll", "value": "opacity 0→1, translateY(20px)→0, transition .7s cubic-bezier(.16,1,.3,1)", "purpose": "Entrada de todo bloco marcado data-reveal ao cruzar o viewport (IntersectionObserver)." },
+      { "name": "aa-float", "value": "@keyframes aa-float { 0%,100% translateY(0); 50% translateY(-10px) } 6s ease-in-out infinite", "purpose": "Flutuação contínua do badge 'Revisão concluída' no hero." },
+      { "name": "aa-grow", "value": "@keyframes aa-grow { from scaleY(.25); to scaleY(1) } .9s cubic-bezier(.16,1,.3,1)", "purpose": "Crescimento das barras do gráfico de desempenho ao entrar em cena." },
+      { "name": "button-hover", "value": "transform .18s, box-shadow .18s, background .18s", "purpose": "Padrão de transição em todos os botões e links com estado hover." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal — 'Começar agora'.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Começar agora</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #0014ED; color: #fff; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 17px; padding: 16px 30px; border-radius: 13px; box-shadow: 0 14px 30px -12px rgba(0,20,237,.75); transition: transform .18s, background .18s, box-shadow .18s; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { background: #000366; transform: translateY(-2px); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "CTA secundário/ghost — 'Conhecer o Aprova Aê'.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Conhecer o Aprova Aê</a>",
+      "css": ".ds-btn-secondary { display: inline-block; background: #fff; color: #000366; border: 1px solid #D5DAF0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 600; font-size: 17px; padding: 15px 26px; border-radius: 13px; transition: border-color .18s, color .18s; } .ds-btn-secondary:hover, .ds-btn-secondary:focus-visible { border-color: #0014ED; color: #0014ED; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Card de grade padrão (públicos, funcionalidades) com hover elevado.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-icon\">CP</div><h3 class=\"ds-card-title\">Concursos Públicos</h3><p class=\"ds-card-desc\">Organize sua preparação até a prova.</p></div>",
+      "css": ".ds-card { background: #fff; border: 1px solid #E8EAF6; border-radius: 18px; padding: 26px; transition: transform .22s, box-shadow .22s, border-color .22s; } .ds-card:hover, .ds-card:focus-within { transform: translateY(-4px); box-shadow: 0 26px 50px -30px rgba(0,3,102,.35); border-color: #CDD5F5; } .ds-card-icon { width: 42px; height: 42px; border-radius: 12px; background: #EEF1FF; display: grid; place-items: center; margin-bottom: 20px; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 14px; color: #0014ED; } .ds-card-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.02em; color: #000366; margin: 0 0 8px; } .ds-card-desc { font-size: 15px; line-height: 1.6; color: #667085; margin: 0; }"
+    },
+    {
+      "name": "Dark Feature Card",
+      "kind": "card",
+      "refersTo": "card-dark",
+      "description": "Card escuro de destaque (bento grid de funcionalidades, comparação de caminhos).",
+      "html": "<div class=\"ds-card-dark\"><h3 class=\"ds-card-dark-title\">Planejamento de estudos</h3><p class=\"ds-card-dark-desc\">Monte um plano que caiba na sua semana real.</p></div>",
+      "css": ".ds-card-dark { background: #000366; color: #fff; border-radius: 22px; padding: clamp(26px,3.4vw,40px); } .ds-card-dark-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: clamp(22px,2.6vw,30px); letter-spacing: -0.03em; margin: 0 0 10px; } .ds-card-dark-desc { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.72); margin: 0; }"
+    },
+    {
+      "name": "Pill Toggle",
+      "kind": "chip",
+      "refersTo": "pill-toggle-active",
+      "description": "Toggle Mensal/Anual da seção de planos.",
+      "html": "<div class=\"ds-toggle\"><button class=\"ds-toggle-btn ds-toggle-btn--off\">Mensal</button><button class=\"ds-toggle-btn ds-toggle-btn--on\">Anual</button></div>",
+      "css": ".ds-toggle { display: inline-flex; background: #F7F8FC; border: 1px solid #E8EAF6; border-radius: 999px; padding: 4px; gap: 4px; } .ds-toggle-btn { border: none; cursor: pointer; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 600; font-size: 14px; padding: 9px 20px; border-radius: 999px; transition: background .18s, color .18s; } .ds-toggle-btn--on { background: #0014ED; color: #fff; } .ds-toggle-btn--off { background: transparent; color: #667085; } .ds-toggle-btn--off:hover, .ds-toggle-btn--off:focus-visible { color: #0014ED; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Header fixo com blur e CTA primário.",
+      "html": "<header class=\"ds-header\"><div class=\"ds-header-inner\"><span class=\"ds-header-logo\">Aprova Aê</span><nav class=\"ds-header-nav\"><a href=\"#\">Funcionalidades</a><a href=\"#\">Planos</a></nav><a class=\"ds-btn-primary\" href=\"#\" style=\"padding:11px 20px;font-size:15px;border-radius:11px\">Começar agora</a></div></header>",
+      "css": ".ds-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.86); backdrop-filter: blur(14px); border-bottom: 1px solid #E8EAF6; } .ds-header-inner { display: flex; align-items: center; gap: 28px; height: 74px; padding: 0 24px; } .ds-header-logo { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.03em; color: #000366; } .ds-header-nav { display: flex; gap: 24px; margin-left: auto; font-size: 15px; font-weight: 500; } .ds-header-nav a { color: #3D4661; text-decoration: none; transition: color .18s; } .ds-header-nav a:hover, .ds-header-nav a:focus-visible { color: #0014ED; }"
+    },
+    {
+      "name": "FAQ Accordion Item",
+      "kind": "custom",
+      "refersTo": "faq-item",
+      "description": "Item de acordeão de FAQ com ícone + que gira ao abrir.",
+      "html": "<div class=\"ds-faq\"><button class=\"ds-faq-q\"><span>O que é o Aprova Aê?</span><span class=\"ds-faq-icon\">+</span></button><p class=\"ds-faq-a\">Uma plataforma para planejar, organizar e acompanhar sua preparação.</p></div>",
+      "css": ".ds-faq { border: 1px solid #E8EAF6; border-radius: 16px; background: #fff; overflow: hidden; transition: border-color .2s; } .ds-faq:hover { border-color: #CDD5F5; } .ds-faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: none; border: none; padding: 19px 22px; text-align: left; cursor: pointer; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 600; font-size: 16px; color: #000366; } .ds-faq-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; background: #F7F8FC; display: grid; place-items: center; font-size: 17px; font-weight: 500; color: #0014ED; transition: transform .22s, background .22s; } .ds-faq-a { margin: 0; padding: 0 22px 22px; font-size: 15px; line-height: 1.65; color: #667085; max-width: 620px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Bright Path",
+    "overview": "Aprova Aê se apresenta como uma trilha clara em direção a um objetivo definido — o próprio tagline da página, \"seu caminho é o Aprova Aê\", é o eixo do sistema visual. Índigo elétrico e tinta navy formam uma dupla enérgica e motivadora sobre fundos quase brancos, criando contraste alto sem pesar: a cor de marca é usada para apontar caminho (CTAs, links, acentos de progresso), nunca para preencher a página inteira. O movimento é parte da linguagem, não decoração — cards nascem com fade-and-rise ao rolar a tela (data-reveal), um badge flutua suavemente em loop, barras de gráfico crescem de baixo para cima ao entrar em cena. Nada disso é sutil ou hesitante: é uma página que quer transmitir progresso acontecendo diante dos olhos. O sistema evita duas armadilhas: parecer um SaaS corporativo genérico (por isso sombras sempre tingidas de marca, nunca cinza neutro, e cantos generosamente arredondados em vez de retos) e parecer institucional/burocrático (por isso o excesso de animação de entrada, os cards flutuantes com leve rotação de profundidade, e um único acento verde reservado só para celebrar acerto). Densidade é média-baixa: respiro generoso entre seções, texto centrado e limitado em largura para leitura confortável, mas os blocos de dado (barras, calendário semanal, chips de métricas) são compactos e informativos, como um painel real.",
+    "keyCharacteristics": [
+      "Contraste alto índigo/navy sobre branco e neblina clara, com cor de marca usada com propósito e nunca como preenchimento de fundo em massa.",
+      "Sombras sempre tingidas de navy ou índigo (nunca preto puro), grandes e difusas — dão a sensação de cards flutuando sobre a página.",
+      "Movimento constante e intencional: reveal ao rolar, float contínuo em badges, crescimento de barras — a página se sente viva, nunca estática.",
+      "Cantos generosamente arredondados em quase tudo — nenhuma superfície com canto reto.",
+      "Verde é raro e sempre significa 'isso deu certo' — nunca é usado como cor decorativa alternativa."
+    ],
+    "rules": [
+      { "name": "The Tinted Shadow Rule", "body": "Nenhuma sombra do sistema usa preto neutro; toda sombra é rgba(0,3,102,..) ou rgba(0,20,237,..). Convenção forte observada em todo o site, não uma proibição absoluta.", "section": "elevation" },
+      { "name": "The Rare Green Rule", "body": "Verde aparece apenas quando algo deu certo: confirmação, conclusão, taxa de acerto positiva, benefício exclusivo do plano pago. Padrão observado consistentemente hoje, documentado sem ser regra rígida.", "section": "colors" },
+      { "name": "The Kicker Rule", "body": "Toda seção principal abre com um rótulo pequeno, uppercase, tracking largo (0.14em), cor Índigo Elétrico, antes do título grande.", "section": "typography" },
+      { "name": "The Floating Card Rule", "body": "Elementos pensados como destacados recebem sombra grande e suave tingida de marca; elementos de suporte ficam sem sombra, só borda de 1px.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar Índigo Elétrico (#0014ED) só para ação/link/progresso e Tinta Navy (#000366) para títulos e âncoras escuras — nunca inverter os papéis.",
+      "Do tingir toda sombra de navy ou índigo; nunca usar sombra preta neutra.",
+      "Do abrir toda seção principal com o kicker uppercase em Índigo Elétrico antes do título grande.",
+      "Do arredondar generosamente — 8–14px em componentes pequenos, 16–22px em cards, pill em toggles/badges, círculo em avatares e dots.",
+      "Do animar a entrada de blocos ao rolar — é parte da identidade, não um extra opcional."
+    ],
+    "donts": [
+      "Don't usar verde fora de contexto de confirmação/sucesso.",
+      "Don't preencher uma seção inteira com Índigo Elétrico puro.",
+      "Don't usar borda tracejada fora do contexto 'antes/estado sem estrutura'.",
+      "Don't misturar a família de botão retangular-arredondado (11–13px) com a família pill (999px) no mesmo tipo de componente."
+    ]
+  }
+}

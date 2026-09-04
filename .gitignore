@@ -1,0 +1,21 @@
+# Dependências / build (o projeto não usa, mas evita sujeira se algo for adicionado)
+node_modules/
+dist/
+build/
+.cache/
+
+# Sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Ambiente
+.env
+.env.local

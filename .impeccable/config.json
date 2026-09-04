@@ -1,0 +1,39 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "plus jakarta sans",
+        "createdAt": "2026-09-03T19:56:30.905Z",
+        "reason": "Documented incumbent brand typeface — PRODUCT.md Brand Commitments and DESIGN.md frontmatter already record 'Plus Jakarta Sans' + 'DM Sans' as the confirmed wordmark/type pairing from the earlier /impeccable document pass. This is a responsive-only adapt task on pre-existing content; changing the typeface would violate the explicit instruction to preserve visual identity."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "19px",
+        "createdAt": "2026-09-04T00:00:03.157Z",
+        "reason": "Three distinct one-off elements share this pixel value by coincidence, not by shared role: the header wordmark (L52, unique brand mark — footer wordmark is a separate 18px), the hero card's dynamic subtitle 'Concurso · Prova em 148 dias' (L111, a singular hero element with no repeated peers), and the comparison card's closing pull-quote (L194, clamp fluid, a standalone statement, not a repeated card-title). None repeats elsewhere at a drifted value the way the Title role (19/20/21px) did, so there is no consolidation to make — each is its own legitimate one-off size."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "44px",
+        "files": [
+          "src/components/Pricing.jsx"
+        ],
+        "createdAt": "2026-09-04T19:32:11.597Z",
+        "reason": "pre-existing since original static page (documented in HANDOFF.md as a known off-ramp size the user already decided to leave alone); unchanged value carried over into the Pricing.jsx rewrite, not a new deviation"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14px",
+        "files": [
+          "src/components/Testimonials.jsx"
+        ],
+        "createdAt": "2026-09-04T19:48:21.322Z",
+        "reason": "pre-existing since original static page (documented in HANDOFF.md as known off-ramp sizes the user already decided to leave alone); unrelated to the color-diversity edit made here"
+      }
+    ]
+  }
+}
