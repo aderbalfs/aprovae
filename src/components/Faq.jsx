@@ -35,7 +35,7 @@ export default function Faq() {
   const toggle = (i) => setAberta((s) => (s === i ? null : i));
 
   return (
-    <section id="faq" className="py-[48px]">
+    <section id="faq" className="pt-[100px] pb-[120px]">
       <div
         className="max-w-[1180px] mx-auto px-[clamp(20px,4vw,32px)] grid gap-[clamp(32px,5vw,64px)] items-start"
         style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))' }}

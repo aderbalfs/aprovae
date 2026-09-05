@@ -63,7 +63,7 @@ function Showcase({ item, reverse }) {
 
 export default function ProductShowcase() {
   return (
-    <section className="relative bg-graphite overflow-hidden pt-[80px] lg:pt-[48px] pb-[48px]">
+    <section className="relative bg-graphite overflow-hidden pt-[100px] pb-[120px]">
       <div className="absolute -top-40 -right-20 w-[560px] h-[560px] rounded-full bg-[radial-gradient(circle_at_40%_40%,rgba(0,20,237,.22),rgba(0,20,237,0)_68%)]" />
       <div className="absolute -bottom-40 -left-24 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_60%_60%,rgba(0,3,102,.28),rgba(0,3,102,0)_68%)]" />
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,4vw,32px)] relative flex flex-col gap-[clamp(84px,11vw,140px)]">

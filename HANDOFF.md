@@ -1,7 +1,7 @@
 # Handoff — Aprova Aê
 
-Resumo do que foi feito nesta sessão, para continuar em outro chat do Claude Code.
-Data: 2026-09-04.
+Resumo do que foi feito até agora, para continuar em outro chat do Claude Code.
+Última atualização: 2026-09-05.
 
 ## Estado atual do projeto
 
@@ -17,120 +17,205 @@ npm run preview  # serve a build de produção
 npm run lint      # oxlint (escopo: src/, config já filtra as pastas de tooling)
 ```
 
-Estrutura completa e "onde editar o quê" já documentados em [README.md](README.md) —
-consulte lá para detalhes de arquivos. Design system (cores, tipografia, componentes,
-regras de uso) documentado em [DESIGN.md](DESIGN.md); contexto de produto/audiência em
-[PRODUCT.md](PRODUCT.md).
+**Agora é um repositório git de verdade** (`git init` + primeiro commit já feitos por
+fora desta sessão), com remoto no GitHub: `github.com/aderbalfs/aprovae`. Branch
+`main`, 1 commit até agora (`first commit`). Isso muda a orientação de cautela do
+handoff anterior — hoje dá pra usar `git diff`/`git revert` normalmente.
 
-## O que foi feito, em ordem
+Estrutura completa e "onde editar o quê" documentados em [README.md](README.md).
+Design system (cores, tipografia, componentes, regras de uso) em [DESIGN.md](DESIGN.md);
+contexto de produto/audiência em [PRODUCT.md](PRODUCT.md). **Atenção:** depois da sessão
+descrita abaixo, o site já não segue mais 100% o que o DESIGN.md documenta (ver
+"Divergências do DESIGN.md" adiante) — os dois arquivos precisam de uma revisão de
+sincronia se alguém for confiar neles cegamente.
 
-1. **Organização inicial.** O projeto começou como um único `index.html` estático
-   rodando num runtime "DC" customizado (não editável à mão). Foi analisado, testado
-   localmente e confirmado funcionando — nenhuma alteração de conteúdo/design nessa
-   etapa.
+### Ordem das seções (`src/App.jsx`)
 
-2. **Responsividade (`/impeccable adapt`).** Corrigido um bug real: os dois badges
-   flutuantes do card do hero ("Meta da semana" e "Revisão concluída") sobrepunham
-   dados do card (anel de progresso, estatística "+14%") em telas ≤1024px. Corrigido
-   reancorando os badges para fora do card nesse breakpoint.
+```
+Header → Hero → ProductShowcase → Positioning → LeagueMarquee → Audience
+→ Features → HowItWorks → Benefits → Concept → Pricing → ScreensCarousel
+→ Testimonials → Faq → Cta → Footer
+```
 
-3. **Microinterações (`/impeccable animate`).** Consertado um bug de motion mais sério:
-   o "boot sequence" do hero (anel de progresso, células do calendário, contadores,
-   badges) tocava a animação assim que a página carregava, não quando o usuário
-   rolava até o card — então em qualquer viewport onde o card não estivesse
-   imediatamente visível, a animação já tinha terminado antes de ser vista. Corrigido
-   pausando as animações via CSS e retomando-as via JS exatamente no momento do
-   reveal. Também adicionado leve stagger em grupos de cards (personas, recursos,
-   depoimentos, benefícios) e stagger no crescimento das barras do gráfico.
+## O que foi feito (sessão anterior, resumo)
 
-4. **Conversão para React + Vite + Tailwind.** Reescrita completa do site em
-   componentes React (`src/components/*.jsx`), preservando 100% do texto, cores,
-   layout e comportamento. Todo o conteúdo dinâmico centralizado em
-   `src/data/content.js`. A animação de reveal-on-scroll e o "boot sequence" viraram
-   o hook `src/hooks/useReveal.js` (usa um único `IntersectionObserver` compartilhado
-   + stagger por grupo de irmãos). A versão HTML antiga foi preservada em
-   `legacy-static/` só como referência histórica (não é servida).
+Conversão do `index.html` estático original pra React + Vite + Tailwind, hero com
+parallax/tilt no mockup, logo oficial aplicada em Header/Footer, e as 6 personas de
+"Para quem é" ganhando cada uma sua cor (teal/violeta/rosa/âmbar/azul-céu/terracota).
+Detalhes completos no histórico de commits/conversa anterior — não repetidos aqui.
 
-   **Bug real encontrado e corrigido durante a conversão:** uma regra CSS global
-   `a { color: ... }` estava fora de `@layer`, e CSS não-camadado sempre vence sobre
-   `@layer utilities` do Tailwind — isso fazia `text-white` não funcionar em nenhum
-   link/botão (texto do CTA ficava invisível, mesma cor do fundo). Corrigido
-   envolvendo os estilos base em `@layer base` no `src/index.css`.
+## O que foi feito nesta sessão (longa), em ordem
 
-5. **Hero: layout lado a lado.** A pedido do usuário, a partir de 1024px (`lg:`) o
-   texto ficou alinhado à esquerda com o card flutuante ao lado direito, e o conjunto
-   inteiro centralizado horizontalmente na seção. Abaixo de 1024px continua empilhado
-   e centralizado como antes.
+1. **`ProductShowcase.jsx` (novo).** Seção "Seu painel de estudos" logo após o Hero:
+   mockup do dashboard real (`public/screenshots/dashboard-inicio.jpeg`) dentro de uma
+   janela estilo macOS (3 dots + barra de URL), fundo escuro (`bg-graphite`) com glows
+   radiais índigo/navy. Passou por várias rodadas de ajuste de proporção (66% → 75% →
+   80% de largura) até resolver um bug real de layout: `flex` com larguras em % nos
+   dois filhos + `gap` por cima estourava o container e espremia a coluna de texto
+   abaixo do valor definido. Trocado para `grid` com `grid-template-columns: [4fr 1fr]`
+   (ou `[1fr 4fr]` no variant `reverse`) — o grid subtrai o gap corretamente, sem
+   squeeze. Uma tentativa de "sangrar" o mockup pra fora da viewport
+   (`margin-left: calc(50% - 50vw)`) foi **revertida a pedido do usuário** ("ficou pra
+   fora da tela") — hoje o mockup fica 100% dentro da viewport, com a coluna de texto
+   em largura fixa de `320px` (não mais `%`, pra nunca mais quebrar em linhas curtas).
+   No mobile, ganhou padding extra (`pb-[100px]` no Hero / `pt-[80px]` aqui) só abaixo
+   do breakpoint `lg`, porque o espaço padrão ficava apertado nessa transição.
 
-6. **[QUADRO.md](QUADRO.md).** Backup do código do card flutuante do hero (JSX +
-   dados `heroDias` + classes CSS envolvidas + passo a passo de restauração), a
-   pedido do usuário, "para não perder" esse bloco.
+2. **`LeagueMarquee.jsx` (novo).** Carrossel infinito (CSS puro, sem lib) com as 11
+   medalhas de liga (`public/ligas/*.svg`, renomeadas de "bronze I.svg" etc. pra
+   `bronze-1.svg` etc.) logo depois de "Posicionamento". Fundo escuro, fade nas bordas
+   via `mask-image`, pausa no hover. Foi cogitado (e **só chegou a ser mostrado em
+   preview**, nunca aplicado no código) dar um glow âmbar/dourado nessa seção pra ecoar
+   o ouro das medalhas — ver item 6.
 
-7. **`/impeccable overdrive` no Hero — profundidade com parallax.** Apresentei 3
-   direções, o usuário escolheu "Instrumento com Profundidade": no desktop
-   (`hover:hover` + `pointer:fine`), o card do hero segue o cursor com uma leve
-   inclinação 3D (`useTiltParallax.js`) + um brilho direcional sutil simulando luz
-   num vidro de instrumento; os dois badges flutuantes se deslocam numa profundidade
-   levemente diferente do card (via propriedade `translate`, independente de
-   `transform`, pra não conflitar com as animações que já existiam neles). Em touch
-   ou com `prefers-reduced-motion: reduce`, só um assentamento 3D único na entrada,
-   sem parallax contínuo. Tudo compositor-only (transform/translate/opacity).
+3. **`ScreensCarousel.jsx` (novo, substituiu um `ScreensGallery.jsx` que existiu por
+   pouco tempo).** Vitrine tipo carousel com 5 telas do sistema (Cronômetro, Registro
+   de estudo, Desempenho, Hábitos, Conquistas — screenshots em `public/screenshots/`),
+   tela central maior (75% da viewport) com previews laterais cortados pela borda via
+   `overflow: hidden`, navegação por setas/dots. Fundo `bg-mist` **edge-to-edge** (sai
+   do container, cobre a tela toda) com glows radiais índigo/navy — reforçados a pedido
+   do usuário ("tá muito morto") de opacidade `.16/.08` pra `.28/.14`.
 
-8. **Fundo do Hero.** Apresentei 3 opções, usuário escolheu a mais simples: um
-   segundo brilho radial em Tinta Navy no canto inferior-esquerdo, formando o mesmo
-   eixo diagonal índigo→navy já usado em outros cards do site (Posicionamento, CTA,
-   plano Premium). Estático, sem animação.
+4. **Reformulação completa de `Pricing.jsx`.** Voltou a ter **3 planos** (Free, Base,
+   Pro — antes só tinha Gratuito/Premium). Toggle Mensal/Anual virou um switch
+   deslizante (bolinha branca) em vez de pill buttons. Valores reais definidos pelo
+   usuário:
+   - **Base:** R$ 29,90/mês, ou anual em 12x de R$ 22,79 (ou R$ 219,90 à vista).
+   - **Pro:** R$ 39,90/mês, ou anual em 12x de R$ 28,91 (ou R$ 279,90 à vista).
+   - **Free:** R$ 0.
+   Pro continua sempre com o destaque visual (gradiente índigo→navy + selo "MAIS
+   ESCOLHIDO") — um toggle "Destacar Base/Pro" chegou a ser implementado e **foi
+   removido** a pedido do usuário ("não faz sentido").
 
-9. **Instalação de plugin.** `claude plugin install frontend-design@claude-plugins-official`
-   instalado (escopo: user). Sessão reiniciada para carregá-lo.
+5. **Exploração de paleta de cores — o que ficou de verdade no código:**
+   - `content.js` ganhou `export const espectro` (6 cores: teal `#0E7490`, violeta
+     `#7C3AED`, rosa `#DB2777`, âmbar `#B45309`, azul-céu `#0284C7`, terracota
+     `#C2410C` — as mesmas já usadas nas personas). **Isso está aplicado hoje** em:
+     - `Features.jsx`: os 4 ícones de card usam uma cor do espectro cada.
+     - `Benefits.jsx`: os 8 dots dos chips ciclam pelas 6 cores (antes eram todos
+       verdes, o que já violava a própria "Rare Green Rule" do DESIGN.md).
+     - `Testimonials.jsx`: os selos de categoria usam a mesma cor do público
+       correspondente em "Para quem é" (Concurso Público = teal, Medicina = rosa, etc.).
+   - **O que foi discutido/mostrado em preview mas NUNCA aplicado no código:**
+     - Uma "paleta oficial de 5 cores" (Índigo, Navy, Violeta, Verde, Âmbar) pra
+       substituir esse espectro de 6, com a lógica "Navy/Índigo = base, Violeta/Verde/
+       Âmbar = apoio". Isso foi pedido pelo usuário, discutido, e eu cheguei a montar
+       um **plano de recoloração** (reverter os ícones de Features pra só índigo,
+       Benefits pra só verde, Testimonials pra só violeta, + glows de fundo em
+       Posicionamento/Benefícios/Planos/Depoimentos) — mas isso ficou só numa prévia
+       (artifact), a conversa pivotou pro padding antes de eu aplicar. **Se o usuário
+       voltar a pedir isso, o plano já está pronto, é só implementar.**
+     - Um acento âmbar no H1 do Hero (palavra "aprovação" em dourado) e no kicker da
+       seção de Ligas — também só chegou a virar preview (artifact), nunca foi pro
+       código.
+   - Pesquisei o concorrente **estudei.com.br** (paleta: roxo `#6735BC` de ação, verde-
+     menta `#00CDA0` de destaque de texto, fundo creme `#ECEAE2`) só como referência
+     de estratégia (usar uma 2ª cor pra "acender" uma palavra no texto), não copiei as
+     cores deles.
 
-10. **Crítica de design (`/impeccable critique`) — cancelada.** Dois sub-agentes
-    (revisão de design + detector/evidência de browser) foram disparados em paralelo
-    mas **cancelados pelo usuário antes de terminar** — nenhum relatório foi gerado.
-    Se quiser rodar de novo, é só pedir `/impeccable critique`.
+6. **Padding vertical de TODAS as seções do site foi padronizado.** Era um sistema
+   responsivo (`clamp(72px,10vw,124px)` e variações por seção, documentado no
+   DESIGN.md). A pedido explícito do usuário, virou um valor fixo de **`48px`**
+   topo/base em toda seção (`Hero`, `Positioning`, `Audience`, `Features`,
+   `HowItWorks`, `Benefits`, `Concept`, `Pricing`, `ScreensCarousel`, `LeagueMarquee`,
+   `ProductShowcase`, `Testimonials`, `Faq`, `Cta`, `Footer`) — passou por 30px antes
+   de virar 48px. **Isso é uma divergência real e intencional do DESIGN.md**, que
+   ainda descreve o sistema responsivo antigo — ver seção abaixo.
 
-11. **Logo oficial.** Usuário anexou a logo real do app (`aprovaê`, wordmark azul com
-    checkmark). Removido o fundo branco (script Python/Pillow com transparência
-    progressiva, sem halo) e salvo em `public/logo-aprova-ae.png`. Aplicada no
-    **Header** e no **Footer**, substituindo o ícone+texto que tinha sido construído
-    do zero. Decisão deliberada de **não** colocar no Hero, pra não competir com o
-    H1 por atenção.
+7. **`Audience.jsx` ("Para quem é") — a parte mais instável da sessão, MUITO
+   vai-e-volta.** Estado final, confirmado funcionando: **cards verticais em arco**
+   (o mesmo formato desde a v12 da sessão anterior), só que agora com **fotos reais de
+   pessoas** em vez do ícone com sigla:
+   - 4 cards, `aspect-[8/15]` (proporção bem alta — subiu de `4/5` → `3/4` → `2/3` →
+     `8/15` em pedidos sucessivos de "aumenta mais"), máscara em arco
+     (`rounded-t-full rounded-b-2xl`), foto com `mask-image` fazendo um degradê pra
+     transparente perto da base (`black 0%, black 55%, transparent 92%`) — a foto
+     "dissolve" na cor do próprio card.
+   - Fotos: Concurseiros → `public/pessoas/modelo1.png`, Universitários →
+     `modelo3.png`, Residentes → `residente-final.png`, Vestibulandos →
+     `vestibulanda-final.png`. Cores dos cards: Índigo, Violeta, Navy, Âmbar
+     (`cor` no array `publicos` de `content.js`).
+   - **Duas fotos precisaram de tratamento porque não tinham fundo transparente**
+     (`médico.jpg` e `pessoa.png`, que na real eram arquivos **AVIF com extensão
+     errada** — descoberto com `file` + PIL). Tentei instalar `rembg` (segmentação por
+     ML) pra remover fundo direito — **a instalação falhou** (ambiente Python
+     corrompido, `OSError` tentando escrever `lsm2bin.exe`). Sem ML, usei um script
+     próprio de flood-fill (`Pillow` + `numpy`, sem `scipy`/`cv2` disponíveis) — script
+     ficou salvo em
+     `%TEMP%\claude\...\scratchpad\remove_bg.py` (não está no repo, é scratch).
+     Problema real: o jaleco branco do médico tem a mesma cor do fundo, então
+     flood-fill simples apagava o jaleco junto ("fantasma"). A solução que ficou foi o
+     **degradê `mask-image`** citado acima — ele esconde a parte de baixo (onde o
+     jaleco "fantasma" apareceria) atrás de um fade, em vez de tentar recortar o
+     contorno certo.
+   - **Duas tentativas de redesenho pra cards horizontais foram feitas e as DUAS
+     foram rejeitadas** pelo usuário, que pediu pra reverter pro formato vertical em
+     ambas as vezes (a segunda vez com bem mais frustração — "tudo errado dnv... você
+     já está delirando"). A primeira tentativa usou classes Tailwind ad-hoc; a segunda
+     seguiu um HTML/CSS bem detalhado que o próprio usuário colou (classes
+     `study-areas`/`study-card__*`, breakpoints em 991px/680px/420px) — implementada
+     fielmente, inclusive testada em 4 larguras, mas **também revertida**. O CSS
+     `.study-areas` que cheguei a adicionar em `index.css` foi **removido de novo** na
+     reversão. **Não tente reintroduzir cards horizontais nessa seção sem confirmar
+     de novo com o usuário** — já foi tentado duas vezes e as duas vezes ele pediu
+     pra desfazer.
+   - Arquivos órfãos que sobraram em `public/pessoas/` (não usados por nenhum
+     componente hoje, podem ser limpos com segurança se alguém quiser):
+     `medico.png` (tem marca d'água da PNGTREE, nunca foi usável), `modelo2.png`
+     (nunca chegou a ser escolhido pra nenhuma persona), `médico.jpg` e `pessoa.png`
+     (os originais mal-nomeados em AVIF — as cópias corretas já são
+     `residente-final.png`/`vestibulanda-final.png`, geradas a partir deles).
 
-12. **Mais cores nas personas.** Apresentei 3 escopos, usuário escolheu o mais
-    contido: as 6 personas da seção "Para quem é" (Concursos Públicos, Vestibular &
-    ENEM, Medicina, OAB, Certificações, Provas acadêmicas) ganharam cada uma sua
-    própria cor de destaque no ícone (teal, violeta, rosa, âmbar, azul-céu,
-    terracota — nenhuma reaproveitando índigo/navy, pra nenhuma categoria parecer
-    "mais importante" que as outras, conforme o PRODUCT.md já pede). Resto do site
-    (CTAs, títulos, hero) continua só em índigo/navy. Cores em `src/data/content.js`
-    (campos `cor`/`fundo` no array `publicos`), aplicadas em `Audience.jsx`.
+## Divergências do DESIGN.md (leia antes de confiar nele)
+
+- **Espaçamento entre seções:** DESIGN.md documenta `clamp(72px,10vw,124px)`
+  responsivo; o site hoje usa `48px` fixo em toda seção (ver item 6 acima). Isso foi
+  um pedido explícito e repetido do usuário, não um acidente — mas o DESIGN.md não foi
+  atualizado pra refletir isso.
+- **Cores:** DESIGN.md provavelmente ainda descreve o "Espectro de Assuntos" de 6
+  cores como o sistema vigente (é o que está de fato no código hoje). Se alguém rodar
+  a "paleta oficial de 5 cores" que ficou só em preview (item 5), o DESIGN.md vai
+  precisar de outra atualização.
+- Os ~6 achados de `font-size` fora do type ramp que o hook `/impeccable` aponta
+  continuam os mesmos de sempre (pré-existentes, o usuário já decidiu deixar como
+  estão) — **mais** alguns novos que entraram durante essa sessão em componentes que
+  eu criei/editei seguindo specs literais que o próprio usuário colou (ex.: os
+  tamanhos de fonte do `.study-card` chegaram a ser registrados como exceção via
+  `hook-admin.mjs ignore-value`, mas isso foi tudo revertido junto com o resto da
+  seção horizontal — então essas ignore-values ficaram "penduradas" no
+  `.impeccable/config.json` sem CSS correspondente. Inofensivo, mas é lixo residual
+  se alguém for fazer limpeza).
 
 ## Padrões e decisões que valem lembrar
 
-- **Antes de mudanças visuais amplas ou arriscadas**, o padrão desta sessão foi
-  apresentar 2-3 direções com prós/contras e deixar o usuário escolher (via pergunta
-  estruturada), não implementar direto. Isso funcionou bem e o usuário se acostumou
-  com esse fluxo.
-- **DESIGN.md tem regras nomeadas que devem ser respeitadas** ao adicionar qualquer
-  coisa nova: "The Tinted Shadow Rule" (sombras sempre tingidas de navy/índigo, nunca
-  preto neutro), "The Rare Green Rule" (verde só pra sucesso/confirmação), "The
-  Kicker Rule" (todo título de seção abre com rótulo pequeno uppercase em índigo).
-- **`/impeccable` hook de design** roda automaticamente após editar arquivos de UI e
-  aponta ~6 achados recorrentes de `font-size` fora do type ramp documentado (17px,
-  14px, 11px em botões/legendas). São **pré-existentes desde a página original**,
-  não foram introduzidos por nenhuma mudança desta sessão — o usuário já decidiu
-  deixá-los como estão (não rodar `/impeccable audit` neles por enquanto).
-- Este projeto **não é um repositório git** — não há como desfazer com `git revert`.
-  Qualquer limpeza/remoção deve ser feita com cautela.
-- A ferramenta de browser deste ambiente teve instabilidade recorrente com
-  screenshots (retornando frames antigos/em branco) durante toda a sessão — quando
-  isso acontecer, prefira inspecionar o DOM via JS (`getComputedStyle`, etc.) em vez
-  de insistir em screenshots.
+- **Antes de mudanças visuais amplas**, o padrão que funcionou bem nas sessões
+  anteriores era apresentar 2-3 direções e deixar o usuário escolher. **Nesta sessão
+  isso ficou mais arriscado**: o usuário aprovou previews (artifacts) várias vezes e
+  depois, quando a implementação de fato não bateu 100% com o que ele tinha em mente
+  (mesmo seguindo o preview), reverteu tudo com frustração real. Vale confirmar
+  granularmente ("essa cor aqui, esse espaçamento ali") em vez de assumir que "aprovou
+  o preview" = "aprovou cada detalhe de implementação".
+- **Quando o usuário pede pra reverter, reverta literalmente** — não tente "melhorar"
+  a versão anterior nem misturar ideias novas na hora da reversão. Nas duas reversões
+  desta sessão, o pedido foi sempre "volta pro que estava antes", não "volta e ajusta".
+- **Ferramenta de screenshot do browser deste ambiente segue instável** (frames em
+  branco na maioria das tentativas) — o caminho confiável continua sendo inspecionar
+  DOM/geometria via `javascript_exec` (`getComputedStyle`, `getBoundingClientRect`).
+- Ao criar imagem transparente a partir de fundo branco liso, **cuidado com roupas
+  brancas/claras** — flood-fill por cor não distingue "fundo" de "roupa da mesma cor
+  encostando na borda da foto". Não há `rembg`/`scipy`/`cv2` disponíveis neste
+  ambiente Python (tentativa de instalar `rembg` falhou); só `Pillow` + `numpy`.
+- Arquivos de imagem podem estar com a **extensão errada** (ex.: um `.jpg`/`.png` que
+  na real é AVIF) — checar com `file <arquivo>` antes de assumir o formato pelo nome.
 
-## Possíveis próximos passos (não pedidos ainda, só ideias que surgiram)
+## Possíveis próximos passos (não pedidos ainda)
 
-- Rodar `/impeccable audit` para revisar os achados de font-size fora do ramp, se o
-  usuário quiser.
-- Rodar `/impeccable critique` de novo (foi cancelado antes de terminar).
-- Nenhum backend/autenticação existe — os CTAs "Começar agora" não levam a lugar
-  nenhum além de âncoras internas; isso é uma decisão de escopo conhecida, não um bug.
+- Nada pendente de aprovação no momento — a última ação foi reverter "Para quem é"
+  pro estado vertical e o usuário pediu explicitamente pra não mexer em mais nada.
+- Se/quando o usuário quiser retomar a paleta de 5 cores oficial ou o acento âmbar no
+  Hero/Ligas, os planos já foram desenhados nesta sessão (ver item 5) — não precisa
+  redesenhar do zero.
+- Considerar sincronizar o DESIGN.md com o padding de 48px e com o estado real da
+  paleta de cores, se o usuário confirmar que quer manter as coisas como estão hoje.
+- Limpar os arquivos órfãos de `public/pessoas/` listados acima, se o usuário
+  autorizar.

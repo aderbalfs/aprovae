@@ -6,6 +6,9 @@
 
   --color-indigo: #0014ED;
   --color-navy: #000366;
+  --color-violet: #7C3AED;
+  --color-amber: #B45309;
+  --color-deep: #00062E;
   --color-green: #0E9F6E;
   --color-green-light: #4ADE80;
   --color-paper: #FFFFFF;
@@ -258,4 +261,49 @@
   .aa-boot-cell, .aa-boot-stat, .aa-boot-badge { animation: none !important; }
   .aa-marquee-track { animation: none !important; }
   .aa-marquee-viewport { overflow-x: auto; }
+}
+
+/* ── Seção Funcionalidades (Figma Make) ────────────────────────────────────── */
+.aa-fx-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.aa-fx-reveal.in { opacity: 1; transform: translateY(0); }
+
+.aa-fx-d0 { transition-delay: 0s; }
+.aa-fx-d1 { transition-delay: 0.08s; }
+.aa-fx-d2 { transition-delay: 0.16s; }
+.aa-fx-d3 { transition-delay: 0.24s; }
+
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(14,159,110,0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 5px rgba(14,159,110,0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-4px) rotate(0.5deg); }
+  66% { transform: translateY(2px) rotate(-0.5deg); }
+}
+
+@keyframes shimmerBar {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes tickAppear {
+  0% { stroke-dashoffset: 20; opacity: 0; }
+  60% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aa-fx-reveal { transform: none !important; transition-duration: .24s !important; transition-delay: 0s !important; }
 }

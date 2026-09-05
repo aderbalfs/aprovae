@@ -6,7 +6,7 @@ export default function LeagueMarquee() {
   const trilha = [...ligas, ...ligas];
 
   return (
-    <section className="relative bg-graphite overflow-hidden py-[48px]">
+    <section className="relative bg-graphite overflow-hidden pt-[100px] pb-[120px]">
       <div className="max-w-[1280px] mx-auto px-[clamp(20px,4vw,32px)] relative">
         <div ref={ref} data-reveal className="text-center mb-[clamp(32px,4.5vw,48px)]">
           <div className="font-display font-semibold text-[13px] tracking-[0.14em] uppercase text-white/55 mb-3">

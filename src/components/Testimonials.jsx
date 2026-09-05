@@ -33,7 +33,7 @@ export default function Testimonials({ show = true }) {
   if (!show) return null;
 
   return (
-    <section className="bg-mist border-t border-b border-line py-[48px]">
+    <section className="bg-mist border-t border-b border-line pt-[100px] pb-[120px]">
       <div className="max-w-[1180px] mx-auto px-[clamp(20px,4vw,32px)]">
         <div ref={introRef} data-reveal className="max-w-[620px] mb-[clamp(36px,5vw,52px)]">
           <div className="font-display font-semibold text-[13px] tracking-[0.14em] uppercase text-indigo mb-4">Depoimentos</div>

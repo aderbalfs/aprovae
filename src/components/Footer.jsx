@@ -2,7 +2,7 @@ import { footerCols, redes } from '../data/content';
 
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-mist border-t border-line pt-[48px] pb-[48px]">
+    <footer id="footer" className="bg-mist border-t border-line pt-[100px] pb-[120px]">
       <div className="max-w-[1180px] mx-auto px-[clamp(20px,4vw,32px)]">
         <div
           className="grid gap-[clamp(28px,4vw,48px)] pb-[clamp(32px,4vw,48px)] border-b border-hairline"

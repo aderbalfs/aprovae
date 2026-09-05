@@ -38,7 +38,7 @@ export default function Audience() {
   const introRef = useReveal();
 
   return (
-    <section id="para-quem" className="bg-mist border-t border-b border-line pt-[48px] pb-[48px]">
+    <section id="para-quem" className="bg-mist border-t border-b border-line pt-[100px] pb-[120px]">
       <div className="max-w-[1180px] mx-auto px-[clamp(20px,4vw,32px)]">
         <div
           ref={introRef}

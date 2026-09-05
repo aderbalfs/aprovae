@@ -143,7 +143,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="planos" className="py-[48px]">
+    <section id="planos" className="pt-[100px] pb-[120px]">
       <div className="max-w-[1180px] mx-auto px-[clamp(20px,4vw,32px)]">
         <div ref={introRef} data-reveal className="text-center max-w-[620px] mx-auto mb-[clamp(40px,5vw,56px)]">
           <div className="font-display font-semibold text-[13px] tracking-[0.14em] uppercase text-indigo mb-4">Planos</div>

@@ -22,8 +22,6 @@ export const caminhoBom = [
   { n: '04', t: 'Evolução' },
 ];
 
-// Ordem escolhida para intercalar base (Índigo/Navy) e apoio (Violeta/Âmbar),
-// sem duas cores de apoio lado a lado.
 export const publicos = [
   {
     titulo: 'Concurseiros',

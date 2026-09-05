@@ -11,7 +11,7 @@ export default function Hero() {
     <section id="top" className="relative bg-mist border-b border-line overflow-hidden">
       <div className="absolute -top-40 -right-30 w-[620px] h-[620px] rounded-full bg-[radial-gradient(circle_at_40%_40%,rgba(0,20,237,.12),rgba(0,20,237,0)_68%)]" />
       <div className="absolute -bottom-32 -left-24 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle_at_60%_60%,rgba(0,3,102,.10),rgba(0,3,102,0)_68%)]" />
-      <div className="max-w-[1180px] mx-auto px-[clamp(20px,4vw,32px)] pt-[48px] pb-[100px] lg:pb-[48px] relative flex flex-col lg:flex-row items-center justify-center gap-[clamp(48px,6vw,72px)] lg:gap-14">
+      <div className="max-w-[1180px] mx-auto px-[clamp(20px,4vw,32px)] pt-[100px] pb-[120px] relative flex flex-col lg:flex-row items-center justify-center gap-[clamp(48px,6vw,72px)] lg:gap-14">
         <div ref={textRef} data-reveal className="max-w-[820px] lg:max-w-[480px] text-center lg:text-left flex flex-col items-center lg:items-start shrink-0">
           <div className="inline-flex items-center gap-2.5 bg-white border border-[#DDE2F7] rounded-full pl-2.5 pr-3.5 py-1.5 text-[13px] font-medium text-navy mb-6.5">
             <span className="w-1.5 h-1.5 rounded-full bg-green" />

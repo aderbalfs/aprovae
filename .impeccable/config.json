@@ -33,6 +33,156 @@
         ],
         "createdAt": "2026-09-04T19:48:21.322Z",
         "reason": "pre-existing since original static page (documented in HANDOFF.md as known off-ramp sizes the user already decided to leave alone); unrelated to the color-diversity edit made here"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "28px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:31.874Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card border-radius"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "17px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:31.991Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card__image-wrapper border-radius"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "36px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:32.099Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card__title"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "23px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:32.195Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card__description"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "29px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:32.295Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card__link"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "30px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:59.267Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "20px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:59.369Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "25px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:59.467Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "24px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:59.565Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "28px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:59.665Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "18px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:59.761Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "22px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:59.863Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "17px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T01:59:59.966Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "24px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T02:00:00.070Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "22px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T02:00:00.219Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "15px",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-09-05T02:00:00.356Z",
+        "reason": "user confirmed: exact CSS pasted by user for .study-card responsive breakpoints"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "createdAt": "2026-09-05T14:10:22.240Z",
+        "reason": "user confirmed: supplied the Figma Make code in C:\\Users\\Aderbal\\Funcionalidades and asked for a verbatim port; the overshoot on the Desempenho bar-chart grow is the designer's intent"
       }
     ]
   }

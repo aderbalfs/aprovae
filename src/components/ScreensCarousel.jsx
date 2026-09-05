@@ -34,7 +34,7 @@ export default function ScreensCarousel() {
   const center = galeria[active];
 
   return (
-    <section className="relative bg-mist border-y border-line py-[48px] overflow-hidden">
+    <section className="relative bg-mist border-y border-line pt-[100px] pb-[120px] overflow-hidden">
       <div className="absolute -top-36 -left-16 w-[560px] h-[560px] rounded-full bg-[radial-gradient(circle_at_40%_40%,rgba(0,20,237,.28),rgba(0,20,237,0)_68%)]" />
       <div className="absolute -bottom-44 right-[-6%] w-[640px] h-[640px] rounded-full bg-[radial-gradient(circle_at_60%_60%,rgba(0,3,102,.28),rgba(0,3,102,0)_68%)]" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[420px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(0,20,237,.14),rgba(0,20,237,0)_72%)]" />

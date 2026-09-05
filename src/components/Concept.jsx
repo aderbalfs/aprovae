@@ -5,7 +5,7 @@ export default function Concept() {
   const ref = useReveal();
 
   return (
-    <section className="bg-navy text-white py-[48px] relative overflow-hidden">
+    <section className="bg-navy text-white pt-[100px] pb-[120px] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(60%_90%_at_80%_10%,rgba(0,20,237,.5),rgba(0,3,102,0)_70%)]" />
       <div ref={ref} data-reveal className="max-w-[900px] mx-auto px-[clamp(20px,4vw,32px)] relative text-center">
         <div className="font-display font-semibold text-[13px] tracking-[0.14em] uppercase text-white/55 mb-6">Nosso conceito</div>

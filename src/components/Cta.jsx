@@ -4,7 +4,7 @@ export default function Cta() {
   const ref = useReveal();
 
   return (
-    <section id="cta" className="px-[clamp(20px,4vw,32px)] pb-[48px]">
+    <section id="cta" className="px-[clamp(20px,4vw,32px)] pb-[120px]">
       <div
         ref={ref}
         data-reveal
